@@ -26,4 +26,17 @@ public class CounterTest {
         myCounter = new Counter();
         assertEquals(-1, myCounter.decrement());
     }
+
+    @Test
+    void testConstructorWithValueSuccess()
+    {
+        myCounter = new Counter(1);
+        assertEquals(1, myCounter.getCount());
+    }
+
+    @Test
+    void testConstructorWithValueFailure()
+    {
+        assertThrows(IllegalArgumentException.class, ()-> {new Counter(-1);});
+    }
 }
